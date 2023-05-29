@@ -33,8 +33,8 @@ defmodule CookbookApi.Users.User do
     timestamps()
   end
 
-  def changeset(user, params \\ %{}) do
-    user
+  def changeset(struct \\ %__MODULE__{}, params) do
+    struct
     |> cast(params, @fields)
     |> validate_required(@required_fields)
   end

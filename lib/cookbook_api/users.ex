@@ -4,10 +4,16 @@ defmodule CookbookApi.Users do
   """
 
   alias CookbookApi.Users.GetAllUsers
+  alias CookbookApi.Users.GetUser
 
   @doc """
   Get all users.
   """
   @spec get_all_users :: {:ok, any}
   defdelegate get_all_users(), to: GetAllUsers, as: :call
+
+  @doc """
+  Get a user.
+  """
+  defdelegate get_user(email, password), to: GetUser, as: :call
 end

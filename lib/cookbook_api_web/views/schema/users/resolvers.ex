@@ -12,4 +12,8 @@ defmodule CookbookApiWeb.Schema.Users.Resolvers do
   def get_all_users(_args, _info) do
     Users.get_all_users()
   end
+
+  def get_user(%{email: email, password: password}, _info) do
+    Users.get_user(email, password)
+  end
 end

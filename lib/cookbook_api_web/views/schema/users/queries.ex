@@ -14,5 +14,12 @@ defmodule CookbookApiWeb.Schema.Users.Queries do
     field :get_all_users, list_of(:user) do
       resolve(&Resolvers.get_all_users/2)
     end
+
+    field :get_user, :user do
+      arg(:email, non_null(:string))
+      arg(:password, non_null(:string))
+
+      resolve(&Resolvers.get_user/2)
+    end
   end
 end

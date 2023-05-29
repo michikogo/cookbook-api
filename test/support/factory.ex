@@ -19,7 +19,7 @@ defmodule CookbookApi.Factory do
       first_name: "John",
       last_name: "Doe",
       email: "john.doe@gmail.com",
-      password: "password",
+      password: Argon2.hash_pwd_salt("password"),
       recipe_ids: ["1"]
     }
   end

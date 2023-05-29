@@ -11,9 +11,14 @@ defmodule CookbookApi.Users.GetUser do
   def call(email, password) do
     result =
       User
-      |> where([u], u.email == ^email and u.password == ^password)
+      |> where([u], u.email == ^email)
       |> Repo.one()
 
-    {:ok, result}
+    case verify_password(password, result.password) do
+      true -> {:ok, result}
+      false -> {:error, "Invalid password"}
+    end
   end
+
+  defp verify_password(password, hash), do: Argon2.verify_pass(password, hash)
 end

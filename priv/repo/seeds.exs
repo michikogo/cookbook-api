@@ -18,7 +18,7 @@ Factory.insert!(:users,
   first_name: "Olivia",
   last_name: "Benson",
   email: "olivia.benson@gmail.com",
-  password: "password",
+  password: Argon2.hash_pwd_salt("password"),
   recipe_ids: ["2"]
 )
 
@@ -27,6 +27,6 @@ Factory.insert!(:users,
   first_name: "Mariska",
   last_name: "Hargitay",
   email: "mariska.haritay@gmail.com",
-  password: "password",
+  password: Argon2.hash_pwd_salt("password"),
   recipe_ids: ["3"]
 )

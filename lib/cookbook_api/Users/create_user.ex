@@ -7,6 +7,8 @@ defmodule CookbookApi.Users.CreateUser do
   alias CookbookApi.Users.User
 
   def call(params) do
+    arams = Map.put(params, :password, hash_password(params[:password]))
+
     case User.changeset(params) do
       %{valid?: false} = changeset ->
         {:error, ChangesetErrors.format(changeset)}
@@ -19,4 +21,6 @@ defmodule CookbookApi.Users.CreateUser do
         )
     end
   end
+
+  defp hash_password(password), do: Argon2.hash_pwd_salt(password)
 end

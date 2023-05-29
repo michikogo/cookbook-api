@@ -9,3 +9,24 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+Code.require_file("factory.ex", "test/support")
+
+alias CookbookApi.Factory
+
+Factory.insert!(:users,
+  uid: Ecto.UUID.generate(),
+  first_name: "Olivia",
+  last_name: "Benson",
+  email: "olivia.benson@gmail.com",
+  password: "password",
+  recipe_ids: ["2"]
+)
+
+Factory.insert!(:users,
+  uid: Ecto.UUID.generate(),
+  first_name: "Mariska",
+  last_name: "Hargitay",
+  email: "mariska.haritay@gmail.com",
+  password: "password",
+  recipe_ids: ["3"]
+)

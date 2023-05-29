@@ -7,7 +7,7 @@ defmodule CookbookApi.Users.CreateUser do
   alias CookbookApi.Users.User
 
   def call(params) do
-    arams = Map.put(params, :password, hash_password(params[:password]))
+    params = Map.put(params, :password, hash_password(params[:password]))
 
     case User.changeset(params) do
       %{valid?: false} = changeset ->

@@ -22,7 +22,6 @@ defmodule CookbookApiWeb do
       use Phoenix.Controller, namespace: CookbookApiWeb
 
       import Plug.Conn
-      import CookbookApiWeb.Gettext
       alias CookbookApiWeb.Router.Helpers, as: Routes
     end
   end
@@ -54,7 +53,6 @@ defmodule CookbookApiWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import CookbookApiWeb.Gettext
     end
   end
 
@@ -67,7 +65,6 @@ defmodule CookbookApiWeb do
       import Phoenix.View
 
       import CookbookApiWeb.ErrorHelpers
-      import CookbookApiWeb.Gettext
       alias CookbookApiWeb.Router.Helpers, as: Routes
     end
   end

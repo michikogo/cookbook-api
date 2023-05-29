@@ -34,6 +34,9 @@ defmodule CookbookApi.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:absinthe, "~> 1.7"},
+      {:absinthe_plug, "~> 1.5"},
+      {:absinthe_phoenix, "~> 2.0"},
       {:phoenix, "~> 1.5.13"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.4"},

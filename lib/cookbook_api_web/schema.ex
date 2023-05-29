@@ -6,4 +6,8 @@ defmodule CookbookApiWeb.Schema do
   query do
     import_fields(:users_query)
   end
+
+  mutation do
+    import_fields(:users_mutation)
+  end
 end

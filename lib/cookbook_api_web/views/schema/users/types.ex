@@ -5,6 +5,7 @@ defmodule CookbookApiWeb.Schema.Users.Types do
 
   use Absinthe.Schema.Notation
   import_types(CookbookApiWeb.Schema.Users.Queries)
+  import_types(CookbookApiWeb.Schema.Users.Mutations)
 
   object :user do
     field :uid, :string

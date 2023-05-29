@@ -9,6 +9,13 @@ defmodule CookbookApiWeb.Schema.Users.Resolvers do
     {:ok, "THE ENDPOINT WORKS!"}
   end
 
+  def create_user(args, _info) do
+    case Users.create_user(args) do
+      {:ok, _} -> {:ok, "User created successfully."}
+      {:error, error} -> {:error, error}
+    end
+  end
+
   def get_all_users(_args, _info) do
     Users.get_all_users()
   end

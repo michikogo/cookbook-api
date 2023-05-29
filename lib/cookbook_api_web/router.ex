@@ -1,4 +1,7 @@
 defmodule CookbookApiWeb.Router do
+  alias CookbookApiWeb.CatchAllController
+  alias CookbookApiWeb.HealthController
+
   use CookbookApiWeb, :router
 
   pipeline :graphql do
@@ -11,5 +14,14 @@ defmodule CookbookApiWeb.Router do
     post "/", Absinthe.Plug,
       schema: CookbookApiWeb.Schema,
       json_codec: Jason
+  end
+
+  scope "/health" do
+    get("/ready", HealthController, :ready)
+    get("/live", HealthController, :live)
+  end
+
+  scope "/" do
+    match(:*, "/*path", CatchAllController, :not_found)
   end
 end

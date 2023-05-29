@@ -1,4 +1,7 @@
 defmodule CookbookApi.Factory do
+  @moduledoc """
+  The Factory module.
+  """
   alias CookbookApi.Repo
   alias CookbookApi.Users.User
 
